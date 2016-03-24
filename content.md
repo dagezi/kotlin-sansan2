@@ -1,10 +1,12 @@
 ## Presented by dagezi
 
-<img width="80px" class=logo src="Qmark.png"> Quipperにいます
+Quipper社 ~~営業~~ Android Engineer
 
-<img src="ss.png">  日本でスタディサプリ
+<img src="ss.png">  スタディサプリ
 
- 東南アジアで Quipper School
+<img width="80px" class=logo src="Qmark.png"> Quipper School
+
+kotlin歴 7日
 
 
 
@@ -160,16 +162,51 @@ fun ttt(ls: List<String>) : Boolean =
     ls.any {it.startsWith("aho")}
 ```
 
-
-```
+ここで `any` は:
+```Kotlin
 public inline fun <T> Array<out T>.all(predicate: (T) -> Boolean): Boolean {
     for (element in this) if (!predicate(element)) return false
     return true
 }
 ```
 
-lambdaもなにもなくなる!
 
+## labmdaなくなる!
+
+```
+  public static final boolean ttt(java.util.List<java.lang.String>);
+    Code:
+       0: aload_0
+       1: ldc           #9                  // String ls
+       3: invokestatic  #15                 // Method kotlin/jvm/internal/Intrinsics.checkParameterIsNotNull:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: checkcast     #17                 // class java/lang/Iterable
+      10: astore_1
+      11: nop
+      12: aload_1
+      13: invokeinterface #21,  1           // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+      18: astore_2
+      19: aload_2
+      20: invokeinterface #27,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      25: ifeq          60
+      28: aload_2
+      29: invokeinterface #31,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      34: astore_3
+      35: aload_3
+      36: checkcast     #33                 // class java/lang/String
+      39: astore        4
+      41: aload         4
+      43: ldc           #35                 // String aho
+      45: iconst_0
+      46: iconst_2
+      47: invokestatic  #41                 // Method kotlin/text/StringsKt.startsWith$default:(Ljava/lang/String;Ljava/lang/String;ZI)Z
+      50: ifeq          57
+      53: iconst_1
+      54: goto          61
+      57: goto          19
+      60: iconst_0
+      61: ireturn
+```
 
 
 ## Jack & Jillで失うもの
